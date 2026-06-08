@@ -8,12 +8,17 @@ Una aplicación portable de escritorio para descargar videos y audio de YouTube 
 
 ## 🚀 Instalación local
 
-1. Copia los ejecutables necesarios en `bin/`:
+1. Descarga y copia los ejecutables necesarios en `bin/`:
+
+- `yt-dlp.exe` desde https://github.com/yt-dlp/yt-dlp/releases
+- `ffmpeg.exe` desde https://ffmpeg.org/download.html
 
 ```bash
 bin/yt-dlp.exe
 bin/ffmpeg.exe  # opcional, pero recomendado para conversión de audio
 ```
+
+> Nota: la carpeta `bin/` está excluida en `.gitignore`, por lo que los ejecutables no se versionan.
 
 2. Instala dependencias:
 
