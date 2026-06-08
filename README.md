@@ -12,6 +12,7 @@ Una aplicación portable de escritorio para descargar videos y audio de YouTube 
 
 - `yt-dlp.exe` desde https://github.com/yt-dlp/yt-dlp/releases
 - `ffmpeg.exe` desde https://ffmpeg.org/download.html
+     O desde: https://github.com/BtbN/FFmpeg-Builds/releases
 
 ```bash
 bin/yt-dlp.exe
