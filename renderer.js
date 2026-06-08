@@ -13,6 +13,9 @@ const audioBtn = document.getElementById('audioBtn');
 const stopBtn = document.getElementById('stopBtn');
 const logsDiv = document.getElementById('logs');
 const statusDiv = document.getElementById('status');
+const downloadProgressDiv = document.getElementById('downloadProgress');
+const progressBar = document.getElementById('progressBar');
+const progressLabel = document.getElementById('progressLabel');
 
 let isDownloading = false;
 
@@ -38,6 +41,22 @@ function clearLogs() {
   logsDiv.textContent = '';
 }
 
+function setProgress(percent) {
+  const normalized = Math.min(100, Math.max(0, percent));
+  progressBar.style.width = `${normalized}%`;
+  progressLabel.textContent = `${normalized.toFixed(1)}%`;
+}
+
+function showProgress() {
+  downloadProgressDiv.style.display = 'block';
+  setProgress(0);
+}
+
+function hideProgress() {
+  setProgress(0);
+  downloadProgressDiv.style.display = 'none';
+}
+
 // Descargar video completo
 downloadBtn.addEventListener('click', () => {
   const url = urlInput.value.trim();
@@ -48,6 +67,7 @@ downloadBtn.addEventListener('click', () => {
 
   clearLogs();
   addLog('Iniciando descarga de video...');
+  showProgress();
   downloadBtn.disabled = true;
   audioBtn.disabled = true;
   stopBtn.style.display = 'block';
@@ -82,6 +102,7 @@ audioBtn.addEventListener('click', () => {
 
   clearLogs();
   addLog('Iniciando descarga de audio...');
+  showProgress();
   downloadBtn.disabled = true;
   audioBtn.disabled = true;
   stopBtn.style.display = 'block';
@@ -114,6 +135,11 @@ const proxyUserInput = document.getElementById('username');
 const proxyPassInput = document.getElementById('password');
 const saveProxyBtn = document.getElementById('saveProxyBtn');
 const cancelProxyBtn = document.getElementById('cancelProxyBtn');
+const clearProxyBtn = document.getElementById('clearProxyBtn');
+
+const showClearProxyButton = (show) => {
+  clearProxyBtn.style.display = show ? 'inline-block' : 'none';
+};
 
 proxyBtn.addEventListener('click', () => {
   proxyConfigDiv.style.display = proxyConfigDiv.style.display === 'none' ? 'block' : 'none';
@@ -134,6 +160,7 @@ saveProxyBtn.addEventListener('click', () => {
     .then(() => {
       showStatus('Proxy guardado correctamente', 'success');
       addLog(`Proxy configurado: http://${proxyAddress}`);
+      showClearProxyButton(true);
       proxyConfigDiv.style.display = 'none';
     })
     .catch((error) => {
@@ -147,6 +174,23 @@ cancelProxyBtn.addEventListener('click', () => {
   proxyConfigDiv.style.display = 'none';
 });
 
+clearProxyBtn.addEventListener('click', () => {
+  invoke('clear-proxy')
+    .then(() => {
+      proxyAddressInput.value = '';
+      proxyUserInput.value = '';
+      proxyPassInput.value = '';
+      showStatus('Proxy eliminado', 'success');
+      addLog('Configuración de proxy eliminada.');
+      showClearProxyButton(false);
+    })
+    .catch((error) => {
+      console.error('Error eliminando proxy:', error);
+      showStatus('No se pudo eliminar el proxy', 'error');
+      addLog(`Error borrando proxy: ${error.message}`);
+    });
+});
+
 // Cargar configuración de proxy guardada al iniciar
 invoke('load-proxy')
   .then((proxyConfig) => {
@@ -155,8 +199,10 @@ invoke('load-proxy')
       proxyUserInput.value = proxyConfig.username || '';
       proxyPassInput.value = proxyConfig.password || '';
       addLog('Configuración de proxy cargada.');
+      showClearProxyButton(true);
     } else {
       addLog('No hay proxy configurado.');
+      showClearProxyButton(false);
     }
   })
   .catch((error) => {
@@ -167,6 +213,12 @@ invoke('load-proxy')
 // Escuchar logs desde el proceso principal
 on('download-log', (message) => {
   addLog(message);
+});
+
+// Actualizar barra de progreso
+on('download-progress', (percent) => {
+  showProgress();
+  setProgress(percent);
 });
 
 // Manejo de errores

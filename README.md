@@ -40,6 +40,7 @@ El instalador o ejecutable estará en `dist/`.
 - Descarga de video completo desde YouTube
 - Descarga de audio en formato MP3
 - Soporte de proxy HTTP con autenticación
+- Barra de progreso para descargas en curso
 - Logs en pantalla para seguimiento de progreso
 - Botón para detener descargas en curso
 - Conversión de audio con FFmpeg cuando está disponible
@@ -52,6 +53,8 @@ La aplicación permite configurar un proxy HTTP con usuario y contraseña.
 - Ingresa la dirección del proxy en el formato `host:puerto`
 - Ingresa usuario y contraseña si tu red requiere autenticación
 - La configuración se guarda automáticamente
+- Si ya no necesitas usar el proxy, puedes eliminarlo con el botón `🧹 Eliminar proxy` dentro de la configuración.
+- El botón de eliminar proxy solo se muestra cuando hay una configuración guardada.
 
 Si no hay proxy configurado, la app funciona en modo directo.
 

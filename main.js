@@ -190,6 +190,14 @@ ipcMain.handle('download-video', async (event, { url, audioOnly }) => {
         const output = data.toString();
         mainWindow.webContents.send('download-log', output.trim());
         lastOutput = output;
+
+        const progressMatch = output.match(/(\d{1,3}\.\d)%/);
+        if (progressMatch) {
+          const percent = parseFloat(progressMatch[1]);
+          if (!Number.isNaN(percent)) {
+            mainWindow.webContents.send('download-progress', Math.min(100, Math.max(0, percent)));
+          }
+        }
       });
 
       ytdlp.stderr.on('data', (data) => {
@@ -263,6 +271,22 @@ ipcMain.handle('save-proxy', async (event, proxyConfig) => {
 // Manejador IPC para cargar configuración de proxy
 ipcMain.handle('load-proxy', async () => {
   return loadProxyConfig();
+});
+
+const clearProxyConfig = () => {
+  try {
+    if (fs.existsSync(proxyConfigPath)) {
+      fs.unlinkSync(proxyConfigPath);
+    }
+    return true;
+  } catch (error) {
+    console.error('Error eliminando configuración de proxy:', error);
+    throw error;
+  }
+};
+
+ipcMain.handle('clear-proxy', async () => {
+  return clearProxyConfig();
 });
 
 // Manejador IPC para detener descarga

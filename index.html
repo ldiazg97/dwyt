@@ -176,6 +176,12 @@
           <button id="stopBtn" class="stop-btn" style="display: none; background: #dc3545;">⏹️ Parar Descarga</button>
         </div>
         <div id="status" class="status"></div>
+        <div id="downloadProgress" class="progress-container" style="display: none;">
+          <div class="progress-track">
+            <div id="progressBar" class="progress-fill"></div>
+          </div>
+          <div id="progressLabel" class="progress-label">0%</div>
+        </div>
       </div>
       <div id="proxyConfig" class="input-section" style="display: none;">
         <label for="proxyAddress" style="margin-top: 15px;">Dirección del proxy HTTP:</label>
@@ -193,6 +199,7 @@
 
         <button id="saveProxyBtn" class="proxy-btn">💾 Guardar Proxy</button>
         <button id="cancelProxyBtn" class="proxy-btn">❌Cancelar</button>
+        <button id="clearProxyBtn" class="proxy-btn" style="display:none; background: #dc3545;">🧹 Eliminar proxy</button>
       </div>
 
       <div class="logs-section">
