@@ -5,6 +5,9 @@ node_modules/
 dist/
 bin/
 
+#txt files
+*.txt
+
 # Logs
 npm-debug.log*
 yarn-debug.log*
