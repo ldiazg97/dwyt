@@ -1,0 +1,66 @@
+{
+  "name": "dwyt",
+  "version": "1.0.0",
+  "description": "Descargador de videos de YouTube - Aplicación Portable",
+  "main": "main.js",
+  "author": "Lester Diaz <lesterd495@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ldiazg97/dwyt.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ldiazg97/dwyt/issues"
+  },
+  "license": "ISC",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder",
+    "build:win": "electron-builder --win --publish never"
+  },
+  "devDependencies": {
+    "electron": "^41.7.1",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.ytdownloader.down",
+    "productName": "down",
+    "directories": {
+      "buildResources": "assets"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "renderer.js",
+      "index.html",
+      "bin/**/*",
+      "assets/**/*",
+      "node_modules/**/*"
+    ],
+    "asarUnpack": [
+      "bin/**/*"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "portable",
+          "arch": ["x64"]
+        }
+      ],
+      "icon": "assets/icons/icon.ico",
+      "certificateFile": null,
+      "certificatePassword": null,
+      "signingHashAlgorithms": ["sha256"],
+      "sign": null
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "down - YouTube Downloader"
+    },
+    "extraMetadata": {
+      "name": "down"
+    }
+  }
+}

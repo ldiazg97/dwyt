@@ -1,0 +1,105 @@
+📋 PASOS PARA CREAR down.exe
+==============================
+
+✅ COMPLETADO:
+  - Interfaz gráfica (HTML/CSS moderna)
+  - Código Electron actualizado
+  - electron-builder instalado
+  - Scripts de compilación listos
+
+📌 PRÓXIMOS PASOS:
+
+1️⃣ COPIAR EJECUTABLES
+   ━━━━━━━━━━━━━━━━━━━━━
+   
+   Necesitas copiar estos archivos a: c:\Users\Dev\dwyt\bin\
+   
+   ✓ yt-dlp.exe
+     Descárgalo desde: https://github.com/yt-dlp/yt-dlp/releases
+     Busca: "yt-dlp.exe" en Assets
+   
+   ✓ ffmpeg.exe (OPCIONAL pero recomendado)
+     Descárgalo desde: https://ffmpeg.org/download.html
+     O desde: https://github.com/BtbN/FFmpeg-Builds/releases
+
+
+2️⃣ VERIFICAR ESTRUCTURA
+   ━━━━━━━━━━━━━━━━━━━━━
+   
+   Después de copiar, tu carpeta debe verse así:
+   
+   dwyt/
+   ├── bin/
+   │   ├── yt-dlp.exe          ← Aquí va
+   │   └── ffmpeg.exe          ← Aquí va (opcional)
+   ├── node_modules/           ✓ (ya existe)
+   ├── main.js                 ✓ (ya existe)
+   ├── index.html              ✓ (ya existe)
+   ├── renderer.js             ✓ (ya existe)
+   ├── preload.js              ✓ (ya existe)
+   ├── package.json            ✓ (ya existe)
+   ├── setup.bat               ✓ (ya existe)
+   ├── build.bat               ✓ (ya existe)
+   └── README.md               ✓ (ya existe)
+
+
+3️⃣ PROBAR LA APLICACIÓN (OPCIONAL)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   
+   En PowerShell:
+   $ npm start
+   
+   Debe abrir una ventana con:
+   - Campo para ingresar URL
+   - Botones: "Descargar Video" y "Descargar Audio MP3"
+   - Panel de logs
+
+
+4️⃣ GENERAR down.exe
+   ━━━━━━━━━━━━━━━━━━━
+   
+   Opción A - Usando script (RECOMENDADO):
+   $ .\build.bat
+   
+   Opción B - Comando manual:
+   $ npm run build:win
+   
+   ✓ El archivo se creará en: dist\down.exe
+   ✓ Tamaño aproximado: ~200-300 MB
+   ✓ Es completamente portable
+
+
+5️⃣ USAR down.exe
+   ━━━━━━━━━━━━━━━
+   
+   ✓ Puedes ejecutar: c:\Users\Dev\dwyt\dist\down.exe
+   ✓ Puedes copiar down.exe a cualquier carpeta
+   ✓ Puedes compartir down.exe (sin dependencias)
+   ✓ Funciona en cualquier PC Windows 64-bit
+
+
+🎯 RESUMEN RÁPIDO:
+   1. Descarga yt-dlp.exe y ffmpeg.exe
+   2. Cópialos en: bin/
+   3. Ejecuta: .\build.bat
+   4. ¡Listo! Tu down.exe estará en: dist/
+
+
+❓ PREGUNTAS FRECUENTES:
+
+P: ¿Necesito tener Python?
+R: No, todo está incluido en down.exe
+
+P: ¿Dónde se guardan los videos?
+R: En: C:\Users\[TU_USUARIO]\Descargas\YouTube Downloads\
+
+P: ¿Qué formatos descarga?
+R: Video completo en mejor calidad disponible
+  Audio: MP3 192 kbps
+
+P: ¿Puedo distribuir down.exe?
+R: Sí, es completamente portable y sin restricciones
+
+
+✨ ¡Tu aplicación estará lista en pocos minutos!
+

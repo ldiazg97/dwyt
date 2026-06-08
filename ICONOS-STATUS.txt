@@ -1,0 +1,177 @@
+🎨 RESUMEN DE PERSONALIZACIÓN
+═════════════════════════════════════════════════════
+
+✅ HECHO HASTA AHORA:
+───────────────────────────────────────────────────
+
+✓ Estructura de iconos creada: assets/icons/
+✓ SVG templates generados
+✓ icon.ico funcional creado
+✓ package.json configurado para iconos
+✓ HTML actualizado con favicon
+✓ Documentación de cambios creada
+
+📁 ARCHIVOS GENERADOS:
+───────────────────────────────────────────────────
+
+assets/icons/
+  ├── icon.svg           (template SVG)
+  ├── icon-16x16.svg     (template pequeño)
+  ├── icon.ico           ✓ (FUNCIONAL AHORA)
+  ├── icon-tmp.bmp       (para convertir a PNG)
+  └── icon-16x16-tmp.bmp (para convertir a PNG)
+
+
+🚀 PRÓXIMOS PASOS:
+───────────────────────────────────────────────────
+
+OPCIÓN 1: Convertir BMP a PNG (recomendado)
+───────────────────────────────────────────
+
+1. Abre: C:\Users\Dev\dwyt\assets\icons\icon-tmp.bmp
+2. En Paint: Archivo → Guardar como → PNG
+3. Guarda como: icon.png
+4. Repite para icon-16x16-tmp.bmp → icon-16x16.png
+
+O usa online:
+  https://cloudconvert.com/bmp-to-png
+
+OPCIÓN 2: Crear tus propios iconos
+─────────────────────────────────
+
+1. Abre Paint
+2. Crea imagen 256x256 (o descarga PNG de internet)
+3. Guarda en: assets/icons/icon.png
+4. Haz otra 16x16 y guarda: assets/icons/icon-16x16.png
+5. (El icon.ico ya existe y funciona)
+
+
+🎨 PERSONALIZACIÓN VISUAL:
+───────────────────────────────────────────────────
+
+Para cambiar colores, nombre, fuente, etc.
+VER: CAMBIOS-RAPIDOS.md
+
+Cambios populares:
+  • Colores de botones
+  • Nombre de la aplicación
+  • Título de ventana
+  • Iconos y emojis
+  • Carpeta de descargas
+
+
+🔄 FLUJO DE TRABAJO:
+───────────────────────────────────────────────────
+
+1. EDITAR → Cambias archivos (HTML, JS, JSON)
+   $ nano index.html
+   $ nano main.js
+   $ etc...
+
+2. PROBAR → Ves los cambios en tiempo real
+   $ npm start
+
+3. GENERAR → Crease el down.exe final
+   $ npm run build:win
+
+4. ARCHIVO → Tu aplicación portátil
+   dist/down.exe
+
+
+📋 ARCHIVOS A PERSONALIZAR:
+───────────────────────────────────────────────────
+
+index.html
+  • Colores (#0078d4, #106ebe, etc.)
+  • Títulos (<h1>, <title>)
+  • Botones (texto e iconos)
+  • Fuentes (font-family)
+  • Favicon
+
+main.js
+  • Carpeta de descargas (downloadDir)
+  • Tamaño de ventana (width, height)
+
+renderer.js
+  • Mensajes de log
+  • Emojis
+
+package.json
+  • Nombre (productName)
+  • Descripción
+  • ID de la aplicación
+  • Autor
+
+
+📌 ESTRUCTURA ACTUAL:
+───────────────────────────────────────────────────
+
+dwyt/
+├── assets/
+│   └── icons/
+│       ├── icon.ico          ✓
+│       ├── icon.png          (próximo)
+│       └── icon-16x16.png    (próximo)
+├── bin/
+│   ├── yt-dlp.exe
+│   └── ffmpeg.exe
+├── node_modules/
+├── index.html
+├── main.js
+├── renderer.js
+├── preload.js
+├── package.json
+├── CAMBIOS-RAPIDOS.md     ← LEE ESTO
+├── PERSONALIZACION.md     ← Y ESTO
+└── ...
+
+
+✨ EJEMPLO RÁPIDO:
+───────────────────────────────────────────────────
+
+Quiero que sea rojo en lugar de azul:
+
+1. Abre index.html en VS Code
+2. Busca: #0078d4
+3. Cámbialo a: #dc3545
+4. Busca: #106ebe
+5. Cámbialo a: #c82333
+6. Ctrl+S (guarda)
+7. npm start (prueba)
+8. npm run build:win (genera)
+
+¡Listo! 🎉
+
+
+❓ PREGUNTAS FRECUENTES:
+───────────────────────────────────────────────────
+
+P: ¿Necesito crear icon.png y icon-16x16.png?
+R: No, pero se ve mejor. El icon.ico ya funciona.
+
+P: ¿Dónde descargo iconos?
+R: Flaticon.com, Icons8.com, Unsplash.com, etc.
+
+P: ¿Puedo cambiar el nombre de down.exe?
+R: Sí, en package.json → "productName": "nombre"
+
+P: ¿Cómo agrego más botones?
+R: Edita index.html y renderer.js
+
+P: ¿Puedo vender/distribuir esto?
+R: Sí, es completamente tuyo.
+
+
+🎯 RESUMEN FINAL:
+───────────────────────────────────────────────────
+
+Tu aplicación es 99% funcional.
+Solo faltan los PNG para iconos (que son opcionales).
+
+La app funciona bien con el icon.ico que ya existe.
+
+Para customizar VER: CAMBIOS-RAPIDOS.md
+
+¡Listo para usar! 🚀
+
+═════════════════════════════════════════════════════
